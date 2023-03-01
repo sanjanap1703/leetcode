@@ -11,28 +11,25 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        int a;
-        ListNode *p=head;
+           ListNode *p=head;
         if(head==NULL)
         {
             return 0;
         }
-        int d;
-        ListNode *prev=head;
-        if(p->next!=NULL)
-        {
-        p=p->next;
-        }
+        
+       
        while(p->next!=NULL)
        {
-           if(p->val==prev->val)
+           if(p->val==p->next->val)
            {
-               prev->next=p->next;
-               p=p->next;
+              ListNode *temp=p->next;
+              p->next=p->next->next;
+              delete(temp);
+             
            }
            else
            {
-           prev=p;
+          // prev=p;
            p=p->next;
            }
            
@@ -40,11 +37,6 @@ public:
       
        
     
-       if(p->val==prev->val)
-       {   
-           prev->next=NULL;
-          // free(p);
-       }
        return head;
 
         
