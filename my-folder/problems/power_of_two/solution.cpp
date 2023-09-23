@@ -1,11 +1,19 @@
 class Solution {
 public:
-    bool isPowerOfTwo(int x) {
-       for(int i=0;i<31;i++)
-       {
-           int a=pow(2,i);
-         if(a==x)return true;
-       }
-       return false;
+    bool isPowerOfTwo(int n) {
+        if(n==0)
+        {
+            return false;
+        }
+        if(n==INT_MAX || n==INT_MIN)
+        {
+            return  false;
+        }
+        if((n & (n-1))==0)
+        { 
+            return true;
+
+        }
+        return false;
     }
 };
